@@ -9,16 +9,15 @@
   </GoogleMap>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
+<script setup>
+import { defineComponent, computed } from 'vue';
+import { GoogleMap, Marker } from 'vue3-google-map';
+import { useStore } from 'vuex';
 
-export default defineComponent({
-  components: { GoogleMap, Marker },
-  setup() {
-    const center = {lat: 37.781169, lng: -122.433633}
-    const markerOptions = {position: {lat: 37.781169, lng: -122.433633}, label: 'h', title: 'home' }
-    return { center, markerOptions }
-  },
-})
+const store = useStore();
+
+// Gets current hovered over state via Vuex
+const markerOptions = computed(() => {console.log(store.state.hoveredSelection[0]); console.log(store.state.hoveredSelection[1]); console.log(store.state.hoveredSelection[2]);
+    return {position: {lat: store.state.hoveredSelection[1], lng: store.state.hoveredSelection[2]}, title: store.state.hoveredSelection[0]};});
+const center = computed(() => {return {lat: store.state.hoveredSelection[1], lng: store.state.hoveredSelection[2]};});
 </script>
