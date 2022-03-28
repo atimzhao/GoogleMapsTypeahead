@@ -1,6 +1,8 @@
+
 <template>
+<!-- TODO: api key shouldn't be public... -->
   <GoogleMap
-  api-key="AIzaSyChRDtOS3t48nFpvqO00zVv4jyBocG39fw"
+  api-key="AIzaSyChRDtOS3t48nFpvqO00zVv4jyBocG39fw" 
   style="width: 100%; height: 500px"
   :center="center"
   :zoom="4"
