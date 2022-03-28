@@ -12,7 +12,15 @@ const itemss = ref(["hi", "there", "buddy"])
 const count = ref(0)
 
 function onInputEventHandler(event) {
-  // itemss.value = ["aaaaa"] // TODO call BE for list of stuff
+  // TODO: query BE for list of filtered states
+  // Necessary to fulfill "State filtering logic should be done in backend(GraphQL)." requirement
+  // However, vue3-simple-typeahead does allow for filtering in FE.
+  
+}
+
+function onHoverItemHandler(currentSelection) {
+  // TODO: update Google Maps API
+  console.log(currentSelection)
 }
 </script>
 
@@ -33,6 +41,7 @@ function onInputEventHandler(event) {
         @onInput="onInputEventHandler"
         @onFocus="onFocusEventHandler"
         @onBlur="onBlurEventHandler"
+        @hoverItem="onHoverItemHandler"
       >
 </vue3-simple-typeahead>
     </h3>
